@@ -1,29 +1,29 @@
-<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 w-full max-w-md">
+<div class="p-6 bg-white rounded-lg shadow-md max-w-md mx-auto mt-10">
 
 
 @error('email')
-    <div class="mb-4 text-red-600">
+    <div class="mb-4 p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
         {{ $message }}
     </div>
 @enderror
 
 
-    <h1 class="">Login</h1>
+    <h1 class="text-xl font-bold mb-4">Login</h1>
 
  
 
-    <form wire:submit.prevent="submit">
+    <form wire:submit.prevent="submit" class="space-y-4">
 
     <div class="mb-4">
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email:</label>
         <input type="email" id="email" wire:model="email" required
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
 
     </div>
     <div class="mb-4">
-        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password:</label>
         <input type="password" id="password" wire:model="password" required
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
     </div>
 
     <button type="submit"

@@ -13,12 +13,12 @@ class Register extends Component
     public $email;
     public $password;
     public $password_confirmation;
-    public $role = '' || 'user';
+    public $role ='user';
 
     public function register() {
 
         $this->validate([
-            'name'=> 'required|striing|max:255',
+            'name'=> 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:5',
             'role' => 'required|in:user,superadmin',
@@ -32,8 +32,6 @@ class Register extends Component
             'role'=> $this->role,
         ]);
 
-        
-        return redirect()->route('login');
     }
 
 

@@ -35,7 +35,7 @@ class Login extends Component
             session()->regenerate();
 
             if (auth()->user()->role === 'superadmin') {
-                return redirect()->route('superadmin.dashboard');
+                return redirect()->route('admin.dashboard');
             }
             return redirect()->route('home');
         }
