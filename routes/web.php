@@ -4,9 +4,8 @@ use App\Livewire\Counter;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Auth;
-use App\Livewire\Task\ListAll;
-use App\Livewire\Task\Create;
-use App\Livewire\Task\Edit;
+
+
 use App\Livewire\Task\View;
 use App\Livewire\NotificationHandler;
 
@@ -33,11 +32,10 @@ Route::middleware(['auth'])->group(function () {
     })->name('home');
 
     
-    Route::get('/tasks', ListAll::class)->name('task.list');
-    Route::get('/tasks/create', Create::class)->name('task.create');
-    Route::get('/tasks/{id}/edit', Create::class)->name('task.edit');
-    Route::get('/tasks/{id}/delete', Create::class)->name('task.delete');
-    Route::get('/tasks/{id}/view', Create::class)->name('task.view');
+    Route::get('/tasks', App\Livewire\Task\ListAll::class)->name('task.list');
+    Route::get('/tasks/create', App\Livewire\Task\Create::class)->name('task.create');
+    Route::get('/tasks/{id}/edit', App\Livewire\Task\Update::class)->name('task.edit');
+    Route::get('/tasks/{id}/delete', App\Livewire\Task\Delete::class)->name('task.delete');
 
     Route::get('/notifications', NotificationHandler::class)->name('notifications');
 

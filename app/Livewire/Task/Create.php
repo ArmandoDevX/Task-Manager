@@ -28,7 +28,7 @@ class Create extends Component
     if (auth()->user()->role !== 'superadmin') {
     // Se não é admin, verificamos se falta a permissão
     if (!auth()->user()->hasPermission('criar_tarefa')) {
-        return redirect()->route('task.list')->with('error', 'Acesso negado.');
+        return redirect()->route('task.list')->with('error', 'Acesso negado, Não tens Permissão para criar nova tarefa.');
     }
 }
     }

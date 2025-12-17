@@ -50,14 +50,20 @@
                 <td class="p-2">{{ $task->assignedUser->name }}</td> <!-- aqui o nome do usuário -->
                 <td>
         @if(auth()->id() === $task->assigned_to && !$task->isExpired())
-            <select 
-                wire:change="updateStatus({{ $task->id }}, $event.target.value)"
-                class="border px-2 py-1 rounded"
-            >
-                <option value="PENDENTE" @if($task->status === 'PENDENTE') selected @endif>PENDENTE</option>
-                <option value="EM_ANDAMENTO" @if($task->status === 'EM_ANDAMENTO') selected @endif>EM ANDAMENTO</option>
-                <option value="FINALIZADO" @if($task->status === 'FINALIZADO') selected @endif>FINALIZADO</option>
-            </select>
+
+   @if($task->status === 'FINALIZADO')
+    <select disabled class="border px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+        <option>FINALIZADO</option>
+    </select>
+@else
+    <select 
+        wire:change="updateStatus({{ $task->id }}, $event.target.value)"
+    >
+        <option value="PENDENTE" class="text-yellow-600" @if($task->status === 'PENDENTE') selected @endif>PENDENTE</option>
+        <option value="EM ANDAMENTO"class="text-blue-600" @if($task->status === 'EM ANDAMENTO') selected @endif>EM ANDAMENTO</option>
+        <option value="FINALIZADO" class="text-green-600" @if($task->status === 'FINALIZADO') selected @endif>FINALIZADO</option>
+    </select>
+@endif
          @else
             <span>{{ $task->status }}</span>
           @endif
