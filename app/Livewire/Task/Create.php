@@ -3,19 +3,29 @@
 namespace App\Livewire\Task;
 
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 use Livewire\Component;
 
 class Create extends Component
 {
 
+
     public $title;
     public $description;
     public $status = 'PENDENTE';
     public $assigned_to;
     public $created_by;
+    public $users = [];
 
-    public function TaskCreate() {
+
+    public function mount() {
+        $this->users = User::all();
+        $this->created_by = Auth::id();
+    }
+
+    public function createTask() {
         $this->validate([
             'title'=> 'required|string|max:255',
             'description' => 'nullable|string',
