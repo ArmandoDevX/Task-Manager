@@ -5,6 +5,7 @@ namespace App\Livewire\Task;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Notifications\TaskCreate as TaskCreateNotification;
 
 use Livewire\Component;
 
@@ -41,10 +42,28 @@ class Create extends Component
             'assigned_to' => $this->assigned_to,
             'created_by' => $this->created_by,
         ]);
+
+        /* foreach (User::where('id', $this->assigned_to)->get() as $user) {
+            $user->notify(new TaskCreateNotification(
+                Task::where('title', $this->title)->first()
+            ));
+        }
+
+*/
+        foreach (User::all() as $user) {
+            $user->notify(new TaskCreateNotification(
+                Task::where('title', $this->title)->first()
+            )); 
+        }
+
+        
+            session()->flash('success', 'Tarefa criada com sucesso.');
     
         return redirect()->route('task.list');
 
     }
+
+ 
 
     public function render()
     {

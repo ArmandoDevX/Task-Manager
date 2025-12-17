@@ -26,7 +26,7 @@ Route::post('logout', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', function () {
-        return view('home');
+        return view('user.home');
     })->name('home');
 
     

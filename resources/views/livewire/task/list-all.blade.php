@@ -1,4 +1,24 @@
 <div class="p-6 bg-white rounded-lg shadow-md">
+
+<!--  Voltar  -->
+
+@auth
+    
+  @if(auth()->user()->role === 'superadmin')
+
+
+     <a href="{{ route('admin.dashboard') }}" class="text-blue-500 hover:underline">Voltar a Dashboard</a>
+
+  @else
+
+
+   <a href="{{ route('home') }}" class="text-blue-500 hover:underline">Voltar ao Home</a>
+
+
+  @endif
+
+@endauth
+
     <h2 class="text-xl font-bold mb-4">Lista de Tarefas</h2>
 
     <a href="{{ route('task.create') }}" class="text-blue-500 hover:underline">Criar Nova Tarefa</a>
