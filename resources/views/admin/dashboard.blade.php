@@ -13,6 +13,9 @@
             <a href="{{ route('task.list') }}" class="text-blue-500 hover:underline mr-4">Lista de Tarefas</a>
             <a href="{{ route('task.create') }}" class="text-blue-500 hover:underline">Criar Nova Tarefa</a>
 
+            <a href="{{ route('user.all') }}" class="text-blue-500 hover:underline">Listar Usuários</a>
+           
+
 
              <form method="POST" action="{{ route('logout') }}" class="inline align-middle ml-4">
                 @csrf

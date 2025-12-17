@@ -24,7 +24,15 @@ class Create extends Component
     public function mount() {
         $this->users = User::all();
         $this->created_by = Auth::id();
+
+    if (auth()->user()->role !== 'superadmin') {
+    // Se não é admin, verificamos se falta a permissão
+    if (!auth()->user()->hasPermission('criar_tarefa')) {
+        return redirect()->route('task.list')->with('error', 'Acesso negado.');
     }
+}
+    }
+
 
     public function createTask() {
         $this->validate([

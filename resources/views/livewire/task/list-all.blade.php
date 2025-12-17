@@ -11,6 +11,12 @@
 
   @else
 
+  @if (session('error'))
+    <div style="background-color: #fee2e2; color: #b91c1c; padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem;">
+        {{ session('error') }}
+    </div>
+@endif
+
 
    <a href="{{ route('home') }}" class="text-blue-500 hover:underline">Voltar ao Home</a>
 

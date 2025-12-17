@@ -6,6 +6,9 @@ use App\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Auth;
 use App\Livewire\Task\ListAll;
 use App\Livewire\Task\Create;
+use App\Livewire\Task\Edit;
+use App\Livewire\Task\View;
+use App\Livewire\NotificationHandler;
 
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +36,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tasks', ListAll::class)->name('task.list');
     Route::get('/tasks/create', Create::class)->name('task.create');
     Route::get('/tasks/{id}/edit', Create::class)->name('task.edit');
-    Route::get('/tasks/{id}/view', Create::class)->name('task.delete');
+    Route::get('/tasks/{id}/delete', Create::class)->name('task.delete');
+    Route::get('/tasks/{id}/view', Create::class)->name('task.view');
+
+    Route::get('/notifications', NotificationHandler::class)->name('notifications');
+
+    
 
     Route::get('register', Register::class)->name('register')->middleware('can:isSuperAdmin');
+
+    Route::get('/admin/users', App\Livewire\User\UserAll::class)->name('user.all')->middleware('can:isSuperAdmin');
+
+    Route::get('/admin/permissions/{userId}', App\Livewire\User\UserPermission::class)->name('admin.permissions')->middleware('can:isSuperAdmin');
 
     Route::get('/superadmin/dashboard', function () {
         return view('admin.dashboard');
