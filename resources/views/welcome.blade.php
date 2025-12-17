@@ -19,18 +19,26 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#f2f4]  text-[#1b1b18] flex p-6 lg:p-8 items-center min-h-screen flex-col">
+  <body class="
+    min-h-screen flex flex-col
+    bg-slate-50 text-slate-900
+    dark:bg-slate-950 dark:text-slate-100
+    p-6 lg:p-8
+">
 
-        <header class="w-full lg:max-w-4xl max-w-[100%] text-sm mb-6 not-has-[nav]:hidden">
+
+        <header class="w-full max-w-[100%] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
 
+
+                <h2 class="text-lg font-semibold">Gestor de Tarefas</h2>
                 @auth
                     
               
                     @if (auth()->user()->role === 'superadmin')
                         <a
-                            href="{{ url('/dashboard') }}"
+                            href="{{ route('admin.dashboard') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
@@ -38,7 +46,7 @@
                     @elseif (auth()->user()->role === 'user')
 
                         <a
-                            href="{{ url('/home') }}"
+                            href="{{ route('/home') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Home
@@ -53,13 +61,6 @@
                             Log in
                         </a>
 
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
                     @endauth
                 </nav>
             @endif
