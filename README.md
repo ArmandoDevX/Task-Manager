@@ -114,7 +114,7 @@ Um utilizador pode executar várias tarefas
 
 O super-admin pode criar tarefas para utilizadores específicos
 
-🧠 Decisões Técnicas
+## Decisões Técnicas
 
 Não foram utilizados pacotes de autenticação ou permissões para atender ao requisito do teste
 

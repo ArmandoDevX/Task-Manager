@@ -7,7 +7,12 @@
     <header class="flex md:justify-between w-full p-6 rounded-lg shadow-md border-b-2 border-gray-300 dark:border-gray-700">
        <div>
         <h2>Admin: {{ Auth::user()->name}}</h2> <br>
+
+         <a href="{{ route('user.perfil', Auth::user()->id)}}">Perfil</a>
+  <br>
+  <br>
          <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+
        </div>
 
         {{-- Navegação --}}
