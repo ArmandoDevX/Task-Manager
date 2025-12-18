@@ -4,19 +4,14 @@
 <div class="min-h-screen w-full bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
 
     {{-- Header --}}
-    <header class="w-full p-6 rounded-lg shadow-md border-b-2 border-gray-300 dark:border-gray-700">
-        <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+    <header class="flex md:justify-between w-full p-6 rounded-lg shadow-md border-b-2 border-gray-300 dark:border-gray-700">
+       <div>
+        <h2>Admin: {{ Auth::user()->name}}</h2> <br>
+         <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+       </div>
 
         {{-- Navegação --}}
-        <nav class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div class="flex flex-col md:flex-row md:space-x-4">
-                <a href="{{ route('task.list') }}" class="text-blue-500 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    Lista de Tarefas
-                </a>
-                <a href="{{ route('user.all') }}" class="text-blue-500 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    Listar Usuários
-                </a>
-            </div>
+        <nav class="mt-4  md:flex-row md:items-center  gap-4">
 
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -26,6 +21,7 @@
                 </button>
             </form>
         </nav>
+
     </header>
 
     {{-- Mensagem de erro --}}
@@ -41,15 +37,22 @@
 
         {{-- Cards do dashboard --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+        <a href="{{ route('task.list') }}">
             <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow hover:shadow-lg transition-shadow">
                 <h2 class="text-xl font-bold mb-2">Tarefas </h2>
-                <p>tarefas para revisar.</p>
+                <p>Gerenciar Tarefas</p>
             </div>
+
+        </a>
+        
+        <a href="{{ route('user.all') }}">
             <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow hover:shadow-lg transition-shadow">
                 <h2 class="text-xl font-bold mb-2">Usuários </h2>
-                <p>Atualmente </p>
+                <p>Gerenciar usuários </p>
             </div>
-         
+        </a>
+
         </div>
     </div>
 

@@ -25,7 +25,7 @@ class Update extends Component
     public function updateUser(){
         $this->validate([
 
-            'name'=> 'required|string|max:255',
+            'name'=> 'nullable|string|max:255',
             'email'=> 'nullable|email|unique:users,email,'. $this->user->id,
             'password' => 'nullable|confirmed|min:5'
         ]);
