@@ -1,12 +1,12 @@
 # Task Manager - Teste Técnico PHP/Laravel
 
-## 📌 Sobre o Projeto
+## Sobre o Projeto
 Aplicação de gestão de tarefas desenvolvida como teste técnico para a vaga de Desenvolvedor PHP/Laravel.
 O sistema permite que um super-admin gerencie utilizadores e tarefas, com permissões específicas e interação em tempo real usando Livewire.
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - PHP 8.4.14
 - Laravel 12
 - Livewire 3
@@ -16,7 +16,7 @@ O sistema permite que um super-admin gerencie utilizadores e tarefas, com permis
 
 ---
 
-## 🚀 Instalação e Execução
+##  Instalação e Execução
 
 ### Pré-requisitos
 - PHP >= 8.3
