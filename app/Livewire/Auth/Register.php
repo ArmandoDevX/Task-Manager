@@ -32,6 +32,8 @@ class Register extends Component
             'role'=> $this->role,
         ]);
 
+        return redirect()->route('user.all');
+
     }
 
 

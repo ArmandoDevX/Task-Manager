@@ -3,10 +3,16 @@
 @section('content')
 <div>
 
+  <a href="{{ route('user.perfil', Auth::user()->id)}}">Perfil</a>
+  <br>
+  <br>
+
+<hr>
   <header class="flex w-full justify-between items-center p-6">
-    
+
   <div>
     <h1 class="text-2xl">{{ Auth::user()->name }}!</h1> 
+    <br>
     <a href="{{ route('task.list') }}" class="text-blue-400">Ver Tarefas</a>
   </div>
 
@@ -17,7 +23,9 @@
           Logout
       </button>
   </form>
+
 </header>
+
 
 
 

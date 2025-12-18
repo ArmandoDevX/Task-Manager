@@ -31,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
         return view('user.home');
     })->name('home');
 
+
+    Route::get('/user/{id}', App\Livewire\User\ListById::class)->name('user.perfil');
+    Route::get('/user/{id}/edit', App\Livewire\User\Update::class)->name('user.edit');
+    Route::get('/user/{id}/delete', App\Livewire\User\Delete::class)->name('user.delete');
     
     Route::get('/tasks', App\Livewire\Task\ListAll::class)->name('task.list');
     Route::get('/tasks/create', App\Livewire\Task\Create::class)->name('task.create');
