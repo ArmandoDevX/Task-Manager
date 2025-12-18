@@ -46,6 +46,8 @@ php artisan migration --seed
 
 composer run dev || php artisan serve
 
+```
+
 ## Funcionalidades Implementadas
 
 ### Autenticação e Autorização
