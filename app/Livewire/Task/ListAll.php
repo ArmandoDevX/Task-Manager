@@ -33,6 +33,7 @@ class ListAll extends Component
         return;
     }
 
+
     // Atualiza o status
     $task->update([
         'status' => $status
@@ -41,7 +42,16 @@ class ListAll extends Component
     session()->flash('success', 'Status da tarefa atualizado com sucesso.');
 }
 
+public function tentDel() {
 
+    
+    session()->flash('error', ' Não pode eliminar tarefa em andamento');
+}
+
+public function tentEdit() {
+
+    session()->flash('error', ' Não é permitido Editar tarefa em andamento');
+}
 
     public function render()
     {

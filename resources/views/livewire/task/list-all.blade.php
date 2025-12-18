@@ -78,8 +78,21 @@
                 </td>
               
                 <td class="p-2">
-                    <a href="{{ route('task.edit', $task->id) }}" class="text-blue-500 hover:underline">Editar</a>
+                  
+
+                    @if($task->status === 'EM ANDAMENTO')
+                     <input type="submit" value="Editar" class="mx-1 text-blue-500 hover:underline" wire:click="tentEdit">
+
+                    <input type="submit" value="Excluir" class=" mx-2 text-red-500 hover:underline" wire:click="tentDel">
+
+                    @else
+                     <a href="{{ route('task.edit', $task->id) }}" class="text-blue-500 hover:underline">Editar</a>
+
                     <a href="{{ route('task.delete', $task->id) }}" class="text-red-500 hover:underline ml-4">Excluir</a>
+                     
+                    @endif
+                    
+
                 </td>
             </tr>
         @endforeach
